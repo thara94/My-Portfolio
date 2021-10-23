@@ -1,0 +1,67 @@
+#!/bin/bash
+
+echo "Hello "  # to great the user
+echo "Do you want to get information on all the network interfaces on your system by running ip a command? (Enter y for yes and n for no)"  #ask the user if wants to run the ip a command 
+read input       # to read the user input
+if [[ $input == y ]]; then   #if statment to show the ip a command info if the user answer y
+	sudo ip a
+fi
+
+
+echo "Do you want to save the output of ip a to netcommands text file (y for yes or n for no)" #ask user if want to save the ip a command output to a file
+read input
+if [[ $input == y ]]; then   #if user wants to save the output should enter y
+	echo "ip a" >> netcommands  # then the command name shows in the text fallowed by the output
+	sudo ip a >> netcommands
+fi
+
+echo "Do you wish to list all ports by running the netstat -a command? (y for yes n for no)" #ask user to run the netstat -a command
+read input
+if [[ $input == y ]]; then #if user answerd y then the command will run
+	sudo netstat -a
+fi
+
+echo "Do you wish to add the ports list information to the netcomands text file? (y for yes and n for no)" #aske user if wants to save the command output
+read input
+if [[ $input == y ]]; then #if the answer is y it gets save to the text file
+	echo "sudo netstat -a" >> netcommands
+	sudo netstat -a >> netcommands
+fi
+
+echo "Do you want to display a list of available interfaces by running the packet analyzer command tcdump -D? (y for yes and n for no)" #ask user to run the tcpdump -D command
+read input
+if [[ $input == y ]]; then #if the user answer is y the command run
+	sudo tcpdump -D
+fi
+echo "Do you wish to add the output of tcpdum -D command to netcommands text file? (y for yes and n for no)" #ask to save the tcpdump -D command info to the text file
+read input
+if [[ $input == y ]]; then # if answer is y it gets save
+	echo "sudo tcpdump -D" >> netcommands
+	sudo tcpdump -D >> netcommands
+fi
+
+echo "Do you want to look up certin DNS information by running the dig command?(y for yes and n for no)" # ask if user wants to run dig command on a any domain name
+read input  
+if [[ $input == y ]]; then #if y the user is asked to enter the domain name
+	echo "enter a domaing name"
+	read answer # to collect the domain name
+	sudo dig $answer  #to run the dig command
+	echo "Do you want to add the output of the dig command to the netcommands file?(y for yes or n for no)" #ask to save the dig command input
+	read input
+	if [[ $input == y ]]; then #if answer is y it gets save
+		echo "sudo dig $answer" >> netcommands
+		sudo dig $answer >> netcommands
+	fi
+fi
+
+echo " Do you wish to use arp -a command to map IPV adresses?(y for yes and n for no)" #ask to run arp -a command 
+read input
+if [[ $input == y ]]; then #if answer is yes it get run
+	sudo arp -a
+fi
+echo "Do you want to add the arp -a output to the netcommands text file? (for yes and n for no)" #ask to save the output to the text file
+read input  
+if [[ $input == y ]]; then # if answer is y it gets save
+	echo "sudo arp -a" >> netcommands
+	sudo arp -a >> netcommands
+fi

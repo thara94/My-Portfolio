@@ -1,0 +1,16 @@
+The first command on my script is IP a command. The IP stands for Internet Protocol. It is like the ifconfig command. 
+Ip shows a lot of information about the routing, devices, and tunnels.  Ip has too many options such as the IP route show which displays the system default route. 
+In my script, I picked the IP a option to get information on all the network interfaces on the system.  
+
+A second is the Netstat command. Netstat command is used to show network status and routing table. Netstat can be run by using different options. 
+I choose the netstat -a option to be on my script because it shows detailed information for active connections by listing all ports both TCP and UDP. 
+
+The third command is the Tcpdumb command which is a packet analyzer. It prints out network packets. It has many configuration options. 
+I picked the tcpdump -D which lists all available interfaces. I choose this option because it is a great command to analyze network packets.
+
+The fourth command is the dig command. The  Dig command is used to gather DNS information. It allows you to query information about DNS records such as host addresses,
+mail exchanges, and server names. It is commonly used to troubleshoot a DNS. I choose this command because if help in diagnosing DNS issues and list information about DNS. 
+
+The last command is the arp command. It stands for Address Resolution Protocol. The arp command is used to map IPV addresses to hardware addresses. 
+It also identifies the systems to some extent. Arp can be used to display an arp cache for a specific IP address, and that is by typing arp -a and the IP address. 
+In my script, I used the arp -a option to display the complete ARP cache.

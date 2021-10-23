@@ -1,0 +1,80 @@
+These command were used to print information from the Awk.data file which is attached to this repository.
+
+
+
+
+Awk ‘{print $1}’ filename – is to print the first names in the file the use of $1 meant the first column of the lines. 
+The file has spaces between the first name and the last name. The first name considers being in the first column of the file. 
+For that reason the use of $1 will only print the first name's.
+
+
+Awk -F: ‘/(Tom|Frodo)/ {print $1 $2}’ filename – this command to print the Tom and Frodo phone numbers. 
+The use of -F is to specify separator at the “:” . The $1 is to print the name and $2 is to print the phone number. 
+ 
+
+Awk ‘/Peregrin/ {print $1 “\t” $2}’ filename -  is to print the name of Peregrin and the phone area code. 
+ 
+ 
+Awk -F: ‘/408/ {print $2}’ filename – to print all phone numbers of area code of 408. -F: is a separator at the ":",
+$2 to print the number. 
+ 
+
+Awk ‘$2~/^(B|D)/ {print $2}’ filename- to print all last names begin with uppercase B or D. $2 is for column 2 of the line, ~ is match operator,
+^ the beginning of, (B|D) means b or d letters. 
+ 
+ 
+ Awk {print substr ($1, 0 , 4)}’ filename- to print names with four or less characters.
+ The substr is separate multiple subscripts. The $1 stands for the first name and 0, 4 is the range for the name letters count. 
+ 
+ 
+ Awk ‘/916/ {print $1}’ filename- to print all files with 916 area code. 
+ 
+ 
+ Awk -F: /Sacharissa/ {print “$” $3 “$” $4 “$” $5}’ filename- is to print the person named Sacharissa contributions with $ in front of each value.
+ That is by using -F: as separator to print things out, the “$” to print the dollar sign, and the $# stand for each value.   
+ 
+ 
+ Awk  ‘$5 > 110 {print $1}’ FS= “:” filename- to print the first and last name of all who have more than $110 contributions in the last month. 
+ The $5 stands for last month contribution. The use of FS= “:” separates the lines ant the “:”.
+ 
+ 
+ Awk ‘$3 < 75 {print$1 $2} FS “:” filename- to print the name and the phone number for those who have less than $75 contribute for the first month.
+ 
+ 
+ Awk  ‘$3 >75 && $3<150 {print$1}’ FS= “:” filename- to print the name of  those who has first month contribution between 75 and 150. 
+ The command pattern means the month contribution must be more than 75 ($3 >75), and (&&), less than 150 ($3<150). The FS= “:” is a separation point. 
+ 
+ 
+ Awk ‘{total=$3+$4+$5} total <700 {print $1}’ FS= “:” filename- to print the first and last name of those who has a total contribution less than 700. 
+ The {total=$3+$4+$5} is to find the total of contributions, total <700 to find the less than 700, then print the name. 
+ 
+ 
+ Awk ‘{mean=($3+$4+$5)/3} mean >100 {print$1}’ FS= “:” filename- to print the name of those who have average contribution more than 100.  Mean stands for the average. 
+ 
+ 
+ Awk ‘$2 !~/916/{print $2}’ filename- to print the last name of all lines that does not contain 916. !~ means does not match operation. 
+ 
+ 
+ Awk  -F: ‘{print NR, $0}’ filename- to print all lines with the preceding number. -F: is a separator. NR means line number of the record. 
+ 
+ 
+ Awk {‘total=$3+$4+$5} {print$1, total}’ FS= “:” filename- to print the name and the total of contribution. 
+ That is by adding the contribution, printing the name, and the total. 
+ 
+ 
+ Awk ‘$1~/Tiffany/{print $3 + 10}’ FS= “:” filename- to add 10 to Tiffany contribution. That is by use FS= “:” to separate the line and print the total of  10 + $3. 
+ 
+ 
+ Awk ‘{sub(/Samwise Gamgee/,”Sean Astin”);print}’ filename- to change the name of Samwise Gamgee to Sean Astin. The use of sub meaning is substitute. 
+ Then you first write the string you want to change, then the new string. 
+
+ 
+
+
+
+References
+https://zetcode.com/lang/awk/
+https://flylib.com/books/en/4.356.1.62/1/
+https://www.shortcutfoo.com/app/dojos/awk/cheatsheet
+https://www.cs.ait.ac.th/~on/O/oreilly/unix/sedawk/ch09_02.htm
+

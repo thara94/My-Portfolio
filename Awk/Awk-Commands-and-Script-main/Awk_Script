@@ -1,0 +1,22 @@
+#!/usr/bin/awk -f
+BEGIN{ #to begin the script
+	FS=":"  #to specify separator at the :
+}
+{
+	$1~/Took/ #to print the tooks names and thier total campaign contribution
+		print$1,(total=$3+$4+$5)
+}	
+
+
+{
+	/Bullroarer/ #to print the Bullroarer contribution
+		print$3$4$5
+}	
+
+{
+	if($5>175) #to print those who contributed more than $175 in the lasr contribution
+		print$0
+}
+
+
+
