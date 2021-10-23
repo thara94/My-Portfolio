@@ -1,4 +1,4 @@
-# My Portfolio
+# Biography
 
 
 I am an information Tecnology student at NECC. My interests are Computer Programming and Web Development. I have worked on Python, Java, HTML, and CSS. 
