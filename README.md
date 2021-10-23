@@ -6,8 +6,7 @@ I am an information Tecnology student at NECC. My interests are Computer Program
 
 
 I consider all the labs I did in Linux administration class tell now to be accomplishments. 
-1. Systems Set up: I had some issues with setting up FTP.
-3. The Grep Family: The easiest
-5. Sed: My favorite lab
-7. Awk: The most challenging
-9. Networking: I mostly prod off.
+
+1. The Grep Family
+2. Awk
+3. Networking
