@@ -7,6 +7,5 @@ I am an information Tecnology student at NECC. My interests are Computer Program
 
 I consider all the labs I did in Linux administration class tell now to be accomplishments. 
 
-1. The Grep Family
-2. Awk
-3. Networking
+1. Awk
+2. Networking
