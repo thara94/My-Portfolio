@@ -1,0 +1,25 @@
+#!/bin/bash
+
+
+sudo iptables -A INPUT -i eth0 -p tcp --dport 80 -j ACCEPT  #to allow traffic from port 80
+sudo iptables -A INPUT -i eth0 -p tcp --dport 8080 -j ACCEPT #to allow traffic from port 8080
+sudo iptables -t nat -I PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080 #to forward traffic from port 80 to port 8080
+
+sudo iptables -A INPUT  -p tcp --destination-port 3306 -j ACCEPT #this command will allow remote access from all IP addresses on the internet through the MYSQL port
+
+sudo iptables -A INPUT  -p tcp -m tcp --dport 22 -j ACCEPT #to allow alll incoming SSH connections
+
+sudo iptables -A OUTPUT -p tcp -m tcp --dport 22 -j ACCEPT # to allow all outcomming SSH connection
+
+sudo iptables -A OUTPUT -p tcp --sport 25 -j REJECT #command to reject all outgoing SMTP mail
+
+sudo iptables -A INPUT -p tcp --dport 110  -j ACCEPT #to allow is to allow server to respond to POP3 connections
+sudo iptables -A OUTPUT -p tcp --sport 110  -j ACCEPT #to allow outgoing POP3 connection
+
+sudo iptables -A INPUT -m mac --mac-source 00:0F:EA:91:04:08 -j DROP #to drop all connection coming from a specific MAC address
+
+sudo iptables -A INPUT -p tcp --dport 22 -m mac --mac-source 00:0F:EA:91:04:08 -j ACCEPT #command to allow SSH access to specific MAC
+
+sudo iptables -A INPUT -p icmp --icmp-type echo-request -j REJECT # command to block pings
+
+
