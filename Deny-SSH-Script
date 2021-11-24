@@ -1,6 +1,0 @@
-#!/bin/bash
-
-sudo iptables -A INPUT -p tcp --dport 22 -j DROP # command to drop all incoming SSH traffic
-sudo iptables -A OUTPUT -p tcp --sport 22 -j Drop # command to drop all outcoming SSH traffic
-
-
