@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo diff datebookA datebookB # to compare two files 

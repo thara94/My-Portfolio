@@ -1,0 +1,4 @@
+#!/bin/bash
+
+sudo find -newermt "1 day ago" -ls #look up any modified files in the last day
+sudo find . -type f -iname ".*" -ls #this command to show hidden files and their information

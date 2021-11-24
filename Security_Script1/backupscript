@@ -1,0 +1,4 @@
+#!/bin/bash
+sudo who #to show logged users
+sudo arp -a #to show all active ip address on the server
+sudo find -newermt "1day ago" -ls #to look up all modified files in the last day
