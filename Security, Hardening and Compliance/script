@@ -1,0 +1,25 @@
+#!/bin/bash
+
+sudo free #command ot check memory usage, it shows buffers and cached memory
+
+sudo mpstat 2 6 #command to take snapshot of CPU usage
+
+sudo lsof #command to look at open files 
+
+echo "would you like to run atop command to get more information on system preformance. Inter y for yes and n for No" #ask if user wish to run the atop command
+
+read input
+
+if [[ $input == y ]]; then 
+	sudo atop # provide information on system performance including some stats on disk activity
+fi
+echo "would you like to add the first three server monitoring command infotmation to a file called info" #ask user if wish to add outputs to a file
+
+read input #read the user answer
+
+if [[ $input == y ]]; then
+	sudo free >> info
+	sudo mpstat 2 6 >> info
+	sudo lsof >> info
+fi	
+
