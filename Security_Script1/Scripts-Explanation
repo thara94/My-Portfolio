@@ -3,7 +3,9 @@ On the Ubuntu server, run the dpkg -l cron command to check if the cron is insta
 Then run the crontab -e command. Pick the third choice for the vim. Then clicked insert, typed new line * 1,2,3,4,5,6 * * * bin/bash /script-name > /home/user/filename.
 The command is to run the cron job from one clock to six, run the script, and add the results to a file. Then click Esc and type :wq to exit the vim. 
 Then create the script for commands to run during the scheduled time. This script is to show the logged users during the hours that is specified in the corn job. 
-That is to keep track of nighttime logs. The script also looks up all connected Ip addresses.
+That is to keep track of nighttime logs. The script also looks up all connected Ip addresses. It also shows all modified files and the user who did the change. 
+This script is to monitor the security of the server by keeping track of logs and modification outside the working hours. 
+
   Vi backipscript 
   #!/bin/bash
   Sudo Who command: to find logged users
@@ -15,19 +17,19 @@ That is to keep track of nighttime logs. The script also looks up all connected 
  
 
 
-Create a Dscript to look up two copies of the same file input and find if a file got changed or updated. 
-This command is to notice any change in a file by users and that by keep the original copy not writeable and compare it with the users copy.
+Create a script with Dscript name to look up two copies of the same file input and find if a file got changed or updated. 
+This command is to notice any change in a file by users, and that is by keep the original copy not writeable and compare it with the users copy.
 
   Vi Dscript
   Click insert key
   Type the diff file1 file2 command
   ESC key
   :wq
-  Run script 
+  Run script by running the fallowing command ./Dscript
  
 
 
-The create a script to monitor hidden files. This command is to monitor all hiding and modified files to find any hidden implemented files on the server that can cause any issues.
+Create a script to monitor hidden files. This command is to monitor all hiding and modified files to find any hidden implemented files on the server that can cause any issues.
   Vi SSCP1
   #!/bin/bash
   sudo find -newermt "1 day ago" -ls: This command to look up any modified files in the last day by using the find command. 
@@ -42,38 +44,45 @@ The create a script to monitor hidden files. This command is to monitor all hidi
 
 Centos Server
 First install the crontab on centos by running the sudo yum install cronie.
-Then type crontab -e. Choose a text editor. Then press insert key. Then insert new lineas the fallowing  * 1,2,3,4,5,6 * * * /bin/bash /script-name > home/user/filename. 
+Then type crontab -e. Choose a text editor. Then press insert key. Then insert new line as the fallowing  * 1,2,3,4,5,6 * * * /bin/bash /script-name > home/user/filename. 
 The command is to run cron job from one clock to six and run the script and add the results to a file. Then Esc and :wq to exit the vim.
  
-Create a script of the commands the will be running through the corn job hours. 
+Create a script of the commands that will be running through the corn job hours. The script is to keep track of all logged users between 1am and 6am and all connected 
+Ip addresses to keep track of unwanted activate on the server. It also shows all modified files and the user who did the change. 
+This script is to monitor the security of the server by keeping track of logs and modification out side the working hours. 
+
   Vi backipscript 
   #!/bin/bash
   Sudo Who command: to find logged users
   Sudo Arp -a: to look up ip addresses
   Sudo Find -newermt “1 day ago” -ls: to find all-new files that had been modified and the time in one day ago, and the -ls to list all the information of each file.
   Then press the ESC and :wq and run Chmod +x the script name to make it executable.
-  Then run the script manually to make sure it works
+  Then run the script manually to make sure it works by running the fallowing command ./script name
  
 
 
-Then create a copy of the Dscript through the FTP sharing or create one to look up two copies of the same file input and find if a file got changed or updated.
+Create a copy of the Dscript through the FTP sharing from ubuntu server or create one to look up two copies of the same file input and find if a file got changed or updated.
+This script is to monitor unwanted change for a file or to show new update to a file. 
+
   Vi Dscript
   Click insert key
   Type the diff file1 file2 command
   ESC key
   :wq
-  Run script 
+  Run script by runing ./Dscript
   
   
   
-Then create a script to monitor hidden files or copy the ubuntu script through FTB sharing.
+Then create a script to monitor hidden files or copy the ubuntu script through FTB sharing. 
+
+This script to monitor all hidden files to find any unwanted file that might be places to cause server issues. 
   Vi SSCP1
   #!/bin/bash
   sudo find -newermt "1 day ago" -ls : This command to look up any modified files in the last day by using the find command. To find all-new files that had been modified and the time in one day ago, and the -ls to list all the information of each file.
   sudo find . -type f -iname ".*" -ls #this command to show hidden files and their information. This command to find all the hidden file and list all their information. 
   Esc key
   Then :wq
-  Then run the script
+  Then run the script by ./script name
 
  
 
