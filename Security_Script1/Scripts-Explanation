@@ -1,19 +1,23 @@
-Ubuntu Server
+
 On the Ubuntu server, run the dpkg -l cron command to check if the cron is installed.
 Then run the crontab -e command. Pick the third choice for the vim. Then clicked insert, typed new line * 1,2,3,4,5,6 * * * bin/bash /script-name > /home/user/filename.
-The command is to run the cron job from one clock to six and run the script and add the results to a file. Then click Esc and type :wq to exit the vim. 
-Then create the script for the command to run during the scheduled time. 
+The command is to run the cron job from one clock to six, run the script, and add the results to a file. Then click Esc and type :wq to exit the vim. 
+Then create the script for commands to run during the scheduled time. This script is to show the logged users during the hours that is specified in the corn job. 
+That is to keep track of nighttime logs. The script also looks up all connected Ip addresses.
   Vi backipscript 
   #!/bin/bash
   Sudo Who command: to find logged users
   Sudo Arp -a: to look up ip addresses
   Sudo Find -newermt “1 day ago” -ls: to find all-new files that had been modified and the time in one day ago, and the -ls to list all the information of each file.
+  This command to keep track of all modified files and the person who did the change. That is to keep track of all users who try to do unexpected change.
   Then press the ESC and :wq to exit. Run chmod +x the script name to make it executable.
-  Then run the script manually to make sure it works.
+  Then run the script manually to make sure it works by typing ./script-name..
  
 
 
-Create a Dscript to look up two copies of the same file input and find if a file got changed or updated.
+Create a Dscript to look up two copies of the same file input and find if a file got changed or updated. 
+This command is to notice any change in a file by users and that by keep the original copy not writeable and compare it with the users copy.
+
   Vi Dscript
   Click insert key
   Type the diff file1 file2 command
@@ -23,10 +27,11 @@ Create a Dscript to look up two copies of the same file input and find if a file
  
 
 
-The create a script to monitor hidden files.
+The create a script to monitor hidden files. This command is to monitor all hiding and modified files to find any hidden implemented files on the server that can cause any issues.
   Vi SSCP1
   #!/bin/bash
-  sudo find -newermt "1 day ago" -ls: This command to look up any modified files in the last day by using the find command. To find all-new file that had been modified and the time in one day ago, and the -ls to list all the information of each file.
+  sudo find -newermt "1 day ago" -ls: This command to look up any modified files in the last day by using the find command. 
+  To find all-new file that had been modified and the time in one day ago, and the -ls to list all the information of each file.
   sudo find . -type f -iname ".*" -ls: this command to show hidden files and their information. 
   Esc key
   Then :wq
