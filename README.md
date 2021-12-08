@@ -1,9 +1,4 @@
-# Biography and Accomplishments
-
-
-I am an information Tecnology student at NECC. My interests are Computer Programming and Web Development. I have worked on Python, Java, HTML, and CSS. 
-
-
+ # Accomplishments
 
 I consider all the labs I did in Linux administration class tell now to be accomplishments. 
 
