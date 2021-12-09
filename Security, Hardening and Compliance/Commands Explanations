@@ -1,0 +1,15 @@
+The Script Commands
+
+Sudo free: using this command in the script provides information of the used memory and the free available memory. The command provided the information by dividing it into columns.
+Total column numbers show the amount of memory that can be used by applications. The used column provides information about the used memory which is calculated as 
+used = total – free – buffers-cache. Free columns stand for the unused available memory. The shared column can be ignored because it is only for backward compatibility. 
+Buff/cache column is a combination of memory used by the kernel buffers and page cache and slabs. The available column is the amount of memory that is available for starting 
+new applications.
+
+Sudo mpstat: is to display the statistics of the CPU usage of the system by showing information about CPU utilization and performance. 
+
+Sudo lsof: everything considers as a file in Linux, so it is important to maintain files. The lsof command gives a list of all visible and not visible opened files that are in use.
+
+Sudo atop: is a great command that can be used to monitor system resources and display information related to system load at a process level. It also allows monitoring threads 
+within processes. After running the script, the command information would be shown on the terminal. However, the output can be saved in a file if the users wish by answering yes 
+for appending the commands outputs to a file called info.
