@@ -3,7 +3,7 @@
 I consider all the labs I did in Linux administration class tell now to be accomplishments. 
 
 Faviort labs
- Awk
- Networking
- Firewall
+ 1.Awk
+ 2.Networking
+ 3.Firewall
   
