@@ -1,0 +1,53 @@
+Installing Docker on Centos
+
+After starting centos server. Log on and run the following commands.
+1.Run sudo yum check-update
+2.Run sudo yum install -y yum-utils device-mapper-persistent-data lvm2. To install utils and mapper that are needed for docker installation. 
+3.Run sudo yum-congig-manager –add-repo https://download.docker.com/linux/centos/docker-ce.repo. To add a repo.
+4.Then run sudo yum install docker-ce docker-ce-cli containerd.io. However, it did not work on my server. I used the sudo dnf install docker-ce –nobest command and it worked. 
+The command I used installed docker by skipping packages with broken dependencies. 
+5.Enable docker by running sudo systemctl enable –now docker
+6.Then run systemctl status docker to check if it is active.
+ 
+
+Installing Kubernetes on Centos
+
+1.To install Kubernetes on centos run sudo setenforce 0 to disable SELinux
+2.Then run sudo swapoff -a to display all memory swaps to increase performance.
+3.Add the Kubernetes repository by creating the following file. That is by changing to root by using su, then type vi /etc/yum.repos.d/Kubernetes.repo. 
+Then click insert and type 
+[kubernetes]
+Name=Kubernetes
+Baseurl=https://packages.cloud.google.com/yum/repos/Kubernetes-el7-x86_64
+Enabled=1
+Gpgcheck=1
+Repo_gpgcheck=1
+Gpgkey=https://packages.cloud.google.com/yum/doc/yum-key.gpg https://packages.cloud.google.com/yum/doc/rppm-package-key.gpg
+Click ESC then typ :wq to exit save. Then exit root by running exit command.
+4.Install Kubernetes packages by running sudo yum install -y kubelet kubeadm kubectl --disableexcludes=kubernetes
+5.Enable the kubelet by running sudo systemctl enable –now kubelet.
+6.Then go to root by running su and your password. Then run vi /etc/sysctl.d/k8s.conf to create a file to help configure iptables. Then click insert to type in the file
+Net.bridge.bridge-nf-call-ip6tables = 1
+Net.bridge.bridge-nf-call-iptables = 1
+Then click ESC and type :x to exit and save.
+7.Run sysctl –system to load new configuration.
+8.Then exit root by running the exit command.
+ 
+
+Install Minikube on centos
+
+1.Run curl -Lo minkube https://storage.googleapis.com/minikube/releases/latest/minikube-linux-amd64
+2.Then make minikube executable by running chmod +x minikube
+3.Run minikube version to confirm the installation
+ 
+
+
+
+
+
+
+
+
+
+
+
