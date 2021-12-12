@@ -1,6 +1,6 @@
  # Linux Adminstration Class
  
-I consider all the labs I did in Linux administration class accomplishments. My favorite labs were Awk, Networking, and Firewall. Corp job labs were interesting. It was amazing to learn about all the things you can do to monitor a server. Learning about Splunk labs was a great opportunity an interesting experience.
+I consider all the labs I did in Linux administration class accomplishments. My favorite labs were Awk, Networking, and Firewall. Cron job labs were interesting. It was amazing to learn about all the things you can do to monitor a server. Learning about Splunk labs was a great opportunity an interesting experience.
 
 1. Biggest Challenge: Keeping track of the class workload and learning objectives.
 
